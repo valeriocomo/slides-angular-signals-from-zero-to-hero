@@ -1,0 +1,16 @@
+{
+	"name": "SlidesAngularSignalsFromZeroToHero",
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+	"mounts": [
+		"source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+	],
+	"postCreateCommand": "sh .devcontainer/postCreate.sh",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"antfu.slidev",
+				"robothy.slidev-copilot"
+			]
+		}
+	}
+}
