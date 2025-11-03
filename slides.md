@@ -41,3 +41,8 @@ seoMeta:
     <carbon:logo-github />
   </a>
 </div>
+
+---
+src: ./pages/00-about-me.md
+transition: slide-left
+---

@@ -1,0 +1,15 @@
+---
+layout: intro-image-right
+image: 'https://github.com/valeriocomo.png?size=800'
+---
+
+# Hello! I'm Valerio!
+
+
+👨🏽‍💻 Technical Project Manager @ DTD
+
+📝 Dev blog
+
+🎤 Speaker
+
+<skill-icons-angular-light /> Developing web app with Angular since 2016
