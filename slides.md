@@ -16,7 +16,7 @@ info: |
 drawings:
   persist: false
 # slide transition: https://sli.dev/guide/animations.html#slide-transitions
-transition: slide-left
+transition: fade-out
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
 # open graph
@@ -44,5 +44,9 @@ seoMeta:
 
 ---
 src: ./pages/00-about-me.md
-transition: slide-left
+transition: fade
+---
+
+---
+src: ./pages/01-agenda.md
 ---
