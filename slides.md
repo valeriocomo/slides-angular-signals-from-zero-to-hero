@@ -16,7 +16,7 @@ info: |
 drawings:
   persist: false
 # slide transition: https://sli.dev/guide/animations.html#slide-transitions
-transition: fade-out
+transition: slide-left
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
 # open graph
@@ -28,7 +28,7 @@ seoMeta:
 ---
 
 # Angular Signals
-# From zero to hero
+# From zero to hero 🚀​
 
 <div class="absolute bottom-10">
   <span class="font-700">
@@ -49,4 +49,8 @@ transition: fade
 
 ---
 src: ./pages/01-agenda.md
+---
+
+---
+src: ./pages/02-the-concepts-behind.md
 ---
