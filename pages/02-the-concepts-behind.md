@@ -67,4 +67,32 @@ backgroundSize: contain
     <p style="color: black"><b>Signals Change Detection</b></p>
 </div>
 
+---
+layout: section
+---
 
+# easier API than RxJS
+
+---
+layout: quote
+---
+
+# The difference between Signals and RxJS is the same between a scalpel and a swiss knife
+
+---
+layout: image
+image: images/signals-vs-rxjs-0.png
+backgroundSize: contain
+---
+
+---
+layout: image
+image: images/signals-vs-rxjs-1.png
+backgroundSize: contain
+---
+
+---
+layout: image
+image: images/signals-vs-rxjs-2.png
+backgroundSize: contain
+---
