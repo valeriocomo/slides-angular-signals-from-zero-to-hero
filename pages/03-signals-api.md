@@ -178,3 +178,58 @@ layout: default
 ---
 
 # here
+
+---
+layout: two-cols-header
+---
+
+# signals API
+## effect
+
+:: left ::
+
+### API
+
+```typescript
+function effect(
+  effectFn: (onCleanup: EffectCleanupRegisterFn) => void,
+  options?: CreateEffectOptions | undefined,
+): EffectRef;
+```
+
+:: right ::
+
+<v-click>
+
+### EXAMPLE
+
+```typescript {|13-15|}
+@Component({
+    template: `
+    <p>{{ counter() }}</p>
+    <button (click)="decrease()" [disabled]="disableDecrease()">-</button>
+    <button (click)="increase()">+</button>
+    `
+})
+export class AppComponent {
+    readonly counter: WritableSignal = signal(0);
+    readonly disableDecrease: Signal = computed(() => this.counter() <= 0);
+
+    constructor() {
+        effect(() => 
+            console.log(`the value of counter is ${this.counter()}`)
+        );
+    }
+
+    decrease() {
+        this.counter.update(c => c-1);
+    }
+
+    increase() {
+        this.counter.update(c => c+1);
+    }
+}
+```
+
+</v-click>
+
