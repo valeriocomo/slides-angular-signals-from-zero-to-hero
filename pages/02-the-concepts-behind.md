@@ -22,7 +22,7 @@ layout: center
 
 🤟​ easy-to-use reactive primitive
 
-🔬​ fine-graind change detection
+🔍 fine-graind change detection
 
 ​🫶​​ easier API than RxJS
  
@@ -34,7 +34,28 @@ layout: center
 layout: section
 ---
 
-# fine-graind change detection
+# 🤟 easy-to-use reactive primitive
+
+---
+layout: center
+---
+
+<div class="slidev-layout h-full grid section">
+    <div class="my-auto">
+        <h1>Reactive?</h1>
+    </div>
+</div>
+
+---
+layout: iframe
+url: https://en.wikipedia.org/wiki/Reactive_programming
+---
+
+---
+layout: section
+---
+
+# 🔍 fine-graind change detection
 
 
 ---
@@ -71,7 +92,7 @@ backgroundSize: contain
 layout: section
 ---
 
-# easier API than RxJS
+# ​🫶 easier API than RxJS
 
 ---
 layout: quote

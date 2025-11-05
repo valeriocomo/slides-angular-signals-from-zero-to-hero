@@ -54,3 +54,7 @@ src: ./pages/01-agenda.md
 ---
 src: ./pages/02-the-concepts-behind.md
 ---
+
+---
+src: ./pages/03-signals-api.md
+---
