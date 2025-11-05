@@ -73,3 +73,108 @@ interface WritableSignal<T> extends Signal<T> {
 ```
 
 </v-click>
+
+---
+layout: two-cols-header
+---
+
+# signals API
+## signal
+
+:: left ::
+
+### API
+
+<v-click>
+```typescript {|4|}
+function signal<T>(
+    initialValue: T,
+  options?: CreateSignalOptions<T> | undefined,
+): WritableSignal<T>;
+```
+</v-click>
+
+:: right ::
+
+<v-click>
+
+### example
+
+```typescript {}
+@Component({
+    template: `
+    <p>{{ counter() }}</p>
+    <button (click)="decrease()">-</button>
+    <button (click)="increase()">+</button>
+    `
+})
+export class AppComponent {
+    readonly counter: WritableSignal = signal(0);
+    
+    decrease() {
+        this.counter.update(c => c-1);
+    }
+
+    increase() {
+        this.counter.update(c => c+1);
+    }
+}
+```
+</v-click>
+---
+layout: two-cols-header
+---
+
+# signals API
+## computed
+
+:: left ::
+
+### API
+
+```typescript {|4|}
+function computed<T>(
+  computation: () => T,
+  options?: CreateComputedOptions<T> | undefined,
+): Signal<T>;
+```
+
+:: right :: 
+
+<v-click>
+
+### example
+
+</v-click>
+
+<v-click>
+
+```typescript {|5|2}
+@Component({
+    template: `
+    <p>{{ counter() }}</p>
+    <button (click)="decrease()" [disabled]="disableDecrease()">-</button>
+    <button (click)="increase()">+</button>
+    `
+})
+export class AppComponent {
+    readonly counter: WritableSignal = signal(0);
+    readonly disableDecrease: Signal = computed(() => this.counter() <= 0);
+
+    decrease() {
+        this.counter.update(c => c-1);
+    }
+
+    increase() {
+        this.counter.update(c => c+1);
+    }
+}
+```
+</v-click>
+
+
+---
+layout: default
+---
+
+# here
