@@ -233,3 +233,48 @@ export class AppComponent {
 
 </v-click>
 
+---
+layout: center
+---
+
+# signals API
+## effect
+### use cases
+
+- logging
+- data sync with (local|session)Storage
+- DOM behaviour
+- performing ops with 3rd party UI library
+
+---
+layout: default
+---
+
+# signals API
+## effect
+### injection context
+
+```typescript {|9-11|4-6|16-20|13|}
+export class AppComponent {
+    readonly counter: WritableSignal = signal(0);
+    readonly disableDecrease: Signal = computed(() => this.counter() <= 0);
+    private readonly privateLogger = effect(() => 
+        console.log(`privateLogger: counter is ${this.counter()}`)
+    );
+
+    constructor() {
+        effect(() => 
+            console.log(`constructor: counter is ${this.counter()}`)
+        );
+
+        initLogging();
+    }
+
+    private initLogging() {
+        effect(() => {
+            console.log(`initLogging: counter is ${this.counter()}`)
+        })
+    }
+    // other methods
+}
+```
