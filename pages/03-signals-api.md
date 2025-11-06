@@ -319,13 +319,18 @@ export class AppComponent {
 </v-click>
 
 ---
-layout: two-cols-header
+layout: section
+---
+
+# linkedSignal()
+
+---
+layout: default
 ---
 
 # signals API
-## linked signals
+## linkedSignal()
 
-:: left ::
 
 ### API
 
@@ -343,9 +348,12 @@ function linkedSignal<D>(
 
 ```
 
-:: right ::
+---
+layout: default
+---
 
-<v-click>
+# signals API
+## linkedSignal()
 
 ### example
 
@@ -369,5 +377,3 @@ basketballGoatOptions.set(['Lebron James', 'Tim Duncan', 'Michael Jordan', 'Kobe
 
 console.log(selectedOption()); // 'Lebron James'
 ```
-
-</v-click>
