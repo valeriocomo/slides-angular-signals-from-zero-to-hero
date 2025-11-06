@@ -129,13 +129,17 @@ export class AppComponent {
 ```
 
 ---
-layout: two-cols-header
+layout: section
+---
+
+# computed()
+
+---
+layout: default
 ---
 
 # signals API
-## computed
-
-:: left ::
+## computed()
 
 ### API
 
@@ -146,15 +150,14 @@ function computed<T>(
 ): Signal<T>;
 ```
 
-:: right :: 
+---
+layout: default
+---
 
-<v-click>
-
+# signals API
+## computed()
 ### example
 
-</v-click>
-
-<v-click>
 
 ```typescript {|4,10}
 @Component({
@@ -176,8 +179,8 @@ export class AppComponent {
         this.counter.update(c => c+1);
     }
 }
+
 ```
-</v-click>
  
 
 ---
