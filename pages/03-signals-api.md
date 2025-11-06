@@ -372,21 +372,22 @@ layout: default
 
 ```typescript
 
-const basketballGoatOptions = signal(
+const rhcpOptions = signal(
     [
-        'Michael Jordan', 
-        'Magic Johnson', 
-        'Larry Bird'
+        'John Frusciante', 
+        'Anthony Kiedis', 
+        'Flea',
+        'Chad Smith'
     ]);
-const selectedOption = linkedSignal(() => basketballGoatOptions()[0]);
+const selectedOption = linkedSignal(() => rhcpOptions()[0]);
 
-console.log(selectedOption()); // 'Michael Jordan'
+console.log(selectedOption()); // 'John Frusciante'
 
-selectedOption.set(basketballGoatOptions()[2]);
+selectedOption.set(rhcpOptions()[2]);
 
-console.log(selectedOption()); // 'Larry Bird'
+console.log(selectedOption()); // 'Flea'
+// john is leaving
+rhcpOptions.set(['Dave Navarro', 'Anthony Kiedis', 'Flea', 'Chad Smith']);
 
-basketballGoatOptions.set(['Lebron James', 'Tim Duncan', 'Michael Jordan', 'Kobe Bryant']);
-
-console.log(selectedOption()); // 'Lebron James'
+console.log(selectedOption()); // 'Dave Navarro'
 ```
