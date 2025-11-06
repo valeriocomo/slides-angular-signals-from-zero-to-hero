@@ -58,3 +58,7 @@ src: ./pages/02-the-concepts-behind.md
 ---
 src: ./pages/03-signals-api.md
 ---
+
+---
+src: ./pages/04-signalsification-in-angular.md
+---
