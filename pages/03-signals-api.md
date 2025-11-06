@@ -386,7 +386,7 @@ console.log(selectedOption()); // 'John Frusciante'
 selectedOption.set(rhcpOptions()[2]);
 
 console.log(selectedOption()); // 'Flea'
-// john is leaving
+// john left
 rhcpOptions.set(['Dave Navarro', 'Anthony Kiedis', 'Flea', 'Chad Smith']);
 
 console.log(selectedOption()); // 'Dave Navarro'
