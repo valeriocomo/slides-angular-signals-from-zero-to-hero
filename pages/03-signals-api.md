@@ -106,7 +106,7 @@ layout: default
 ## signal()
 ### example
 
-```typescript {|10|10,13|10,13,17 }
+```typescript {|10|10,13|10,13,17}
 
 @Component({
     template: `
