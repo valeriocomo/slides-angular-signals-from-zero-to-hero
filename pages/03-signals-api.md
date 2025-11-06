@@ -263,7 +263,7 @@ layout: default
 export class AppComponent {
     readonly counter: WritableSignal = signal(0);
     readonly disableDecrease: Signal = computed(() => this.counter() <= 0);
-    private readonly privateLogger = effect(() => 
+    private readonly privateLogger: EffectRef = effect(() => 
         console.log(`privateLogger: counter is ${this.counter()}`)
     );
 
@@ -283,3 +283,91 @@ export class AppComponent {
     // other methods
 }
 ```
+
+---
+layout: default
+---
+
+# signals API
+## effect
+### destroy effects
+
+<v-clicks>
+
+- destroyed with its context
+ 
+- calling `destroy()`
+
+</v-clicks>
+
+<v-click>
+
+```typescript
+export class AppComponent {
+    // other code here
+    private readonly privateLogger: EffectRef = effect(
+        () => console.log(`privateLogger: counter is ${this.counter()}`)
+    );
+
+    // other methods here
+    private destroyLogging() {
+        this.privateLogger.destroy();
+    }
+    // other methods here
+}
+```
+</v-click>
+
+---
+layout: two-cols-header
+---
+
+# signals API
+## linked signals
+
+:: left ::
+
+### API
+
+```typescript
+
+function linkedSignal<D>(
+  computation: () => D,
+  options?:
+    | {
+        equal?: ValueEqualityFn<NoInfer<D>> | undefined;
+        debugName?: string | undefined;
+      }
+    | undefined,
+): WritableSignal<D>;
+
+```
+
+:: right ::
+
+<v-click>
+
+### example
+
+```typescript
+
+const basketballGoatOptions = signal(
+    [
+        'Michael Jordan', 
+        'Magic Johnson', 
+        'Larry Bird'
+    ]);
+const selectedOption = linkedSignal(() => basketballGoatOptions()[0]);
+
+console.log(selectedOption()); // 'Michal Jordan'
+
+selectedOption.set(basketballGoatOptions()[2]);
+
+console.log(selectedOption()); // 'Larry Bird'
+
+basketballGoatOptions.set(['Lebron James', 'Tim Duncan', 'Michael Jordan', 'Kobe Bryant']);
+
+console.log(selectedOption()); // 'Lebron James'
+```
+
+</v-click>
