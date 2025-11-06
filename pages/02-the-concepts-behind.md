@@ -42,7 +42,7 @@ layout: center
 
 <div class="slidev-layout h-full grid section">
     <div class="my-auto">
-        <h1>Reactive?</h1>
+        <h1>reactive?</h1>
     </div>
 </div>
 
