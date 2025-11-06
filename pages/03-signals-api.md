@@ -184,13 +184,17 @@ export class AppComponent {
  
 
 ---
-layout: two-cols-header
+layout: section
+---
+
+# effect()
+
+---
+layout: default
 ---
 
 # signals API
-## effect
-
-:: left ::
+## effect()
 
 ### API
 
@@ -201,13 +205,13 @@ function effect(
 ): EffectRef;
 ```
 
-:: right ::
-
-<v-click>
+---
+layout: default
+---
 
 ### EXAMPLE
 
-```typescript {|13-15|}
+```typescript {|13-15}
 @Component({
     template: `
     <p>{{ counter() }}</p>
@@ -235,14 +239,13 @@ export class AppComponent {
 }
 ```
 
-</v-click>
 
 ---
 layout: center
 ---
 
 # signals API
-## effect
+## effect()
 ### use cases
 
 - logging
@@ -254,7 +257,7 @@ layout: center
 layout: center
 ---
 
-# you can only create an effect() within an injection context
+# you can only create an `effect()` within an injection context
 
 ---
 layout: image
@@ -266,31 +269,31 @@ layout: default
 ---
 
 # signals API
-## effect
+## effect()
 ### injection context
 
-```typescript {|9-11|4-6|13,16-20}
+```typescript {|7|3|8,12-14|4,18-20|3,4,7,8,12-14,18-20}
 export class AppComponent {
-    readonly counter: WritableSignal = signal(0);
-    readonly disableDecrease: Signal = computed(() => this.counter() <= 0);
-    private readonly privateLogger: EffectRef = effect(() => 
-        console.log(`privateLogger: counter is ${this.counter()}`)
-    );
+    // other data
+    readonly #privateLogger: EffectRef = effect(() => console.log(`privateLogger: counter is ${this.counter()}`));
+    readonly #injector = inject(Injector);
 
     constructor() {
-        effect(() => 
-            console.log(`constructor: counter is ${this.counter()}`)
-        );
-
+        effect(() => console.log(`constructor: counter is ${this.counter()}`));
         initLogging();
     }
 
-    private initLogging() {
+    #initLogging() {
         effect(() => {
             console.log(`initLogging: counter is ${this.counter()}`)
         })
     }
-    // other methods
+
+    #someOtherMethod() {
+        effect(() => {
+            console.log(`someOtherMethod: counter is ${this.counter()}`)
+        }, {injector: this.#injector})
+    }
 }
 ```
 
@@ -299,7 +302,7 @@ layout: default
 ---
 
 # signals API
-## effect
+## effect()
 ### destroy effects
 
 <v-clicks>
@@ -377,7 +380,7 @@ const basketballGoatOptions = signal(
     ]);
 const selectedOption = linkedSignal(() => basketballGoatOptions()[0]);
 
-console.log(selectedOption()); // 'Michal Jordan'
+console.log(selectedOption()); // 'Michael Jordan'
 
 selectedOption.set(basketballGoatOptions()[2]);
 
