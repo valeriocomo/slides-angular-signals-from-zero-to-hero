@@ -75,13 +75,17 @@ interface WritableSignal<T> extends Signal<T> {
 </v-click>
 
 ---
-layout: two-cols-header
+layout: section
+---
+
+# signal()
+
+---
+layout: default
 ---
 
 # signals API
-## signal
-
-:: left ::
+## signal()
 
 ### API
 
@@ -94,13 +98,16 @@ function signal<T>(
 ```
 </v-click>
 
-:: right ::
+---
+layout: default
+---
 
-<v-click>
-
+# signals API
+## signal()
 ### example
 
-```typescript {}
+```typescript {|10|10,13|10,13,17 }
+
 @Component({
     template: `
     <p>{{ counter() }}</p>
@@ -120,7 +127,7 @@ export class AppComponent {
     }
 }
 ```
-</v-click>
+
 ---
 layout: two-cols-header
 ---
