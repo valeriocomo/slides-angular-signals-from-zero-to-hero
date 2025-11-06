@@ -149,7 +149,7 @@ function computed<T>(
 
 <v-click>
 
-```typescript {|5|2}
+```typescript {|4,10}
 @Component({
     template: `
     <p>{{ counter() }}</p>
@@ -171,13 +171,7 @@ export class AppComponent {
 }
 ```
 </v-click>
-
-
----
-layout: default
----
-
-# here
+ 
 
 ---
 layout: two-cols-header
@@ -247,6 +241,17 @@ layout: center
 - performing ops with 3rd party UI library
 
 ---
+layout: center
+---
+
+# you can only create an effect() within an injection context
+
+---
+layout: image
+image: images/captain-holt.gif
+---
+
+---
 layout: default
 ---
 
@@ -254,7 +259,7 @@ layout: default
 ## effect
 ### injection context
 
-```typescript {|9-11|4-6|16-20|13|}
+```typescript {|9-11|4-6|13,16-20}
 export class AppComponent {
     readonly counter: WritableSignal = signal(0);
     readonly disableDecrease: Signal = computed(() => this.counter() <= 0);

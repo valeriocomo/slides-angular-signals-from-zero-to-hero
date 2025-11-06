@@ -52,6 +52,12 @@ url: https://en.wikipedia.org/wiki/Reactive_programming
 ---
 
 ---
+layout: image
+image: images/the-office-1.gif
+---
+
+
+---
 layout: section
 ---
 
