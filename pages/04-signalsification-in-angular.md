@@ -49,26 +49,44 @@ function resource<T, R>(
 ): ResourceRef<T>;
 ```
 
+<v-click>
+
 ### Data model
+
 ```typescript
 type ResourceOptions<T, R> = PromiseResourceOptions<T, R> | StreamingResourceOptions<T, R>
 ```
 
-```typescript
-interface ResourceRef<T> extends WritableResource<T> {
-  hasValue(this: T extends undefined ? this : never): this is ResourceRef<Exclude<T, undefined>>;
-  hasValue(): boolean;
-  destroy(): void;
-  readonly override value: WritableSignal<T>;
-  override set(value: T): void;
-  override update(updater: (value: T) => T): void;
-  override asReadonly(): Resource<T>;
-  override reload(): boolean;
-  readonly override status: Signal<ResourceStatus>;
-  readonly override error: Signal<Error | undefined>;
-  readonly override isLoading: Signal<boolean>;
-}
+</v-click>
+
+<!--   -->
+
+---
+layout: default
+---
+
+# async event with `resource()`
+## Example
+
+```typescript {|1|2-7|3|4-6|}
+const bookId: Signal<string> = getBookId();
+const bookResource: ResourceRef = resource({
+  params: () => ({id: bookId()}),
+  loader: ({params, abortSignal, previous}): Promise<Book> => {
+    return fetch(`books/${params.id}`, {signal: abortSignal});
+  },
+});
+// ...
+bookResource.reload();
 ```
+
+<v-click>
+
+```typescript 
+type ResourceStatus = 'idle' | 'error' | 'loading' | 'reloading' | 'resolved' | 'local'
+```
+
+</v-click>
 
 ---
 layout: default
@@ -102,3 +120,40 @@ interface WritableResource<T> extends Resource<T> {
   readonly override isLoading: Signal<boolean>;
 }
 ```
+
+---
+layout: default
+---
+
+# async event with `resource()`
+## httpResource()
+
+It's a wrapper around HttpClient
+
+<v-click>
+
+### TS
+
+```typescript
+const bookSchema = z.object({
+  title: z.string(),
+  authore: z.string(),
+});
+
+bookId = input.required<string>();
+book = httpResource(() => `/api/books/${bookId()}`, { parse: bookSchema.parse });
+```
+
+### HTML
+
+```html
+@if(book.hasValue()) {
+  <book-details [book]="book.value()">
+} @else if (book.error()) {
+  <div>Could not load book information</div>
+} @else if (book.isLoading()) {
+  <div>Loading book info...</div>
+}
+```
+
+</v-click>

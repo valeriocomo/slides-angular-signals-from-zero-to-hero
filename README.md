@@ -13,9 +13,10 @@ Learn more about Slidev at the [documentation](https://sli.dev/).
 ### Refs
 
 - https://angular.dev/guide/signals
-- https://angular.dev/ecosystem/rxjs-interop
 - https://angular.dev/guide/signals/linked-signal
 - https://angular.dev/guide/signals/resource
+- https://angular.dev/guide/http/http-resource
+- https://angular.dev/ecosystem/rxjs-interop
 - https://angular.dev/api/core/resource
 - https://angular.dev/api/core/ResourceRef
 - https://angular.dev/api/common/http/httpResource
