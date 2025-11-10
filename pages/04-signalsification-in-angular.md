@@ -183,6 +183,7 @@ function form<TModel>(
 
 ### example 
 
+TS
 ```typescript
 protected readonly data = signal({name: '', surname:''});
 protected readonly form = form(this.data);
@@ -192,7 +193,7 @@ protected readonly form = form(this.data);
 
 <v-click>
 
-
+HTML
 ```html
 <input [control]="form.name" placeholder="Name"/>
 <input [control]="form.surname" placeholder="Surname"/>
