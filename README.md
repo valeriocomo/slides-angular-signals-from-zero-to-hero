@@ -22,4 +22,5 @@ Learn more about Slidev at the [documentation](https://sli.dev/).
 - https://angular.dev/api/common/http/httpResource
 - https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
 - https://www.angulartraining.com/daily-newsletter/angular-change-detection-illustrated/
+- https://www.angulararchitects.io/blog/the-new-ngrx-signal-store-for-angular-2-1-flavors/
 - https://next.angular.dev/api/forms/signals/form
