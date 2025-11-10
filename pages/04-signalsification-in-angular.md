@@ -179,14 +179,9 @@ function form<TModel>(
 ): FieldTree<TModel>;
 ```
 
----
-layout: default
----
-
-# signal forms
-### example 
-
 <v-click>
+
+### example 
 
 ```typescript
 protected readonly data = signal({name: '', surname:''});
