@@ -19,7 +19,7 @@ layout: center
 
 - async event with `resource()`
 
-- signalForms
+- signal forms
 
 - state management
 
@@ -157,3 +157,102 @@ book = httpResource(() => `/api/books/${bookId()}`, { parse: bookSchema.parse })
 ```
 
 </v-click>
+
+---
+layout: section
+---
+
+# signal forms
+
+---
+layout: default
+---
+
+# signal forms
+### API 
+
+```typescript
+function form<TModel>(
+  model: WritableSignal<TModel>,
+  schema: SchemaOrSchemaFn<TModel>,
+  options: FormOptions,
+): FieldTree<TModel>;
+```
+
+---
+layout: default
+---
+
+# signal forms
+### example 
+
+<v-click>
+
+```typescript
+protected readonly data = signal({name: '', surname:''});
+protected readonly form = form(this.data);
+```
+
+</v-click>
+
+<v-click>
+
+
+```html
+<input [control]="form.name" placeholder="Name"/>
+<input [control]="form.surname" placeholder="Surname"/>
+```
+
+</v-click>
+
+
+---
+layout: default
+---
+
+# signal forms
+### a complete example 
+
+````md magic-move
+```typescript {*}{lines:true}
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { Control, form, minLength, required } from '@angular/forms/signals';
+```
+```typescript {*}{lines:true}
+@Component({
+  selector: 'app-form',
+  imports: [Control],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    <input [control]="form.name" placeholder="Your Name" />
+    <input [control]="form.surname" placeholder="Your Email" />
+    <hr>
+    @let nameErrors = form.name().errors();
+    @for (error of nameErrors; track $index) {
+      <li>{{error.message}}</li>
+    } 
+    <button [disabled]="form().invalid()" (click)="submit()">SUBMIT</button>
+  `,
+})
+```
+```typescript {*}{lines:true,startLine:3}
+export class FormComponent {
+  protected readonly data = signal({ name: '', surname: '', email: ''})
+  protected readonly form = form(this.data, (p) => {
+    required(p.name, { message: 'Name is required' });
+    required(p.surnmame, { message: 'Surname is required' });
+    minLength(p.surname, 2, { message: 'too short' })
+  });
+
+  submit() {
+    console.log(this.form().value());
+  }
+}
+```
+````
+
+---
+layout: section
+---
+
+# state management
