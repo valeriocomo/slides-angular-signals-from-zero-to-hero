@@ -300,22 +300,35 @@ layout: default
 # signal forms
 ## form state
 
+<v-click>
+
 Is dirty?
 ```typescript
 form().dirty()
 ```
+</v-click>
+<v-click>
 
 Is touched?
 ```typescript
 form().touched()
 ```
 
+</v-click>
+<v-click>
+
 Is valid or invalid?
 ```typescript
 form().valid()
 form().invalid()
 ```
+</v-click>
 
+---
+layout: quote
+---
+
+# signal forms is an expertimental feature
 
 ---
 layout: section
