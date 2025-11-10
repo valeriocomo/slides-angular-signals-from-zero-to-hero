@@ -207,21 +207,21 @@ layout: default
 ---
 
 # signal forms
-### a complete example 
+## complete example 
 
 ````md magic-move
-```typescript {*}{lines:true}
+```typescript {*}{lines:false,startLine:1}
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { Control, form, minLength, required } from '@angular/forms/signals';
 ```
-```typescript {*}{lines:true}
+```typescript {*}{lines:false,startLine:3}
 @Component({
   selector: 'app-form',
   imports: [Control],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <input [control]="form.name" placeholder="Your Name" />
-    <input [control]="form.surname" placeholder="Your Email" />
+    <input [control]="form.name" placeholder="Name" />
+    <input [control]="form.surname" placeholder="Surname" />
     <hr>
     @let nameErrors = form.name().errors();
     @for (error of nameErrors; track $index) {
@@ -231,7 +231,7 @@ import { Control, form, minLength, required } from '@angular/forms/signals';
   `,
 })
 ```
-```typescript {*}{lines:true,startLine:3}
+```typescript {*}{lines:false,startLine:14}
 export class FormComponent {
   protected readonly data = signal({ name: '', surname: '', email: ''})
   protected readonly form = form(this.data, (p) => {
@@ -246,6 +246,76 @@ export class FormComponent {
 }
 ```
 ````
+
+---
+layout: default
+---
+
+# signal forms
+## form state
+
+### API
+````md magic-move
+```typescript
+interface FieldState<TValue, TKey extends string | number = string | number> extends ɵFieldState<TValue> {
+  readonly dirty: Signal<boolean>;
+  readonly hidden: Signal<boolean>;
+  readonly disabledReasons: Signal<readonly DisabledReason[]>;
+  readonly errors: Signal<WithField[]>;
+  readonly errorSummary: Signal<WithField[]>;
+  readonly valid: Signal<boolean>;
+  readonly invalid: Signal<boolean>;
+  readonly pending: Signal<boolean>;
+  readonly submitting: Signal<boolean>;
+  readonly keyInParent: Signal<TKey>;
+  readonly fieldBindings: Signal<readonly Field<unknown>[]>;
+  //...
+}
+```
+
+```typescript
+interface FieldState<TValue, TKey extends string | number = string | number> extends ɵFieldState<TValue> {
+  //...
+  readonly override disabled: Signal<boolean>;
+  readonly override max?: Signal<number | undefined> | undefined;
+  readonly override maxLength?: Signal<number | undefined> | undefined;
+  readonly override min?: Signal<number | undefined> | undefined;
+  readonly override minLength?: Signal<number | undefined> | undefined;
+  readonly override name: Signal<string>;
+  readonly override pattern: Signal<readonly RegExp[]>;
+  readonly override readonly: Signal<boolean>;
+  readonly override required: Signal<boolean>;
+  readonly override touched: Signal<boolean>;
+  readonly override value: WritableSignal<T>;
+  override markAsDirty(): void;
+  override markAsTouched(): void;
+}
+```
+````
+
+---
+layout: default
+---
+
+# signal forms
+## form state
+
+Is dirty?
+```typescript
+form().dirty()
+```
+
+Is touched?
+```typescript
+form().touched()
+```
+
+Is valid or invalid?
+```typescript
+form().valid()
+form().invalid()
+```
+
 
 ---
 layout: section
