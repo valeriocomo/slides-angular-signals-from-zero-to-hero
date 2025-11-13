@@ -335,3 +335,52 @@ layout: section
 ---
 
 # state management
+
+---
+layout: center
+---
+
+# state management
+## @ngrx/signals
+
+- signalState()
+- signalStore()
+
+---
+layout: default
+---
+
+# state management
+## @ngrx/signals
+### signalState() example
+
+````md magic-move
+
+```typescript {*}
+import { signalState } from '@ngrx/signals';
+```
+
+```typescript {*}
+import { signalState } from '@ngrx/signals';
+
+type Book = {
+  title: string;
+  author: string;
+}
+```
+
+```typescript {*}
+import { signalState } from '@ngrx/signals';
+
+type Book = {
+  title: string;
+  author: string;
+}
+type BookState = { book: Book; };
+
+const bookState = signalState<BookState>({
+  book: { title: 'The black swan', author: 'Nassim Taleb' },
+});
+```
+
+````
