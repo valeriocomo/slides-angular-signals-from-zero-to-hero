@@ -473,3 +473,44 @@ const BOOK_SEARCH_STATE = new InjectionToken<BookSearchState>(
 ```
 
 ````
+---
+
+# state management
+## signalStore()
+### a real-world example
+
+````md magic-move 
+```typescript {|1,16|}
+
+import { signalStore, withState, withComputed } from '@ngrx/signals';
+
+type Book = { /**/ }
+
+type BookSearchState = { /**/ };
+
+const initialState: BookSearchState = {
+  books: [],
+  isLoading: false,
+  filter: { query: '', order: 'asc' },
+};
+
+export const BookSearchStore = signalStore(
+  withState(initialState)
+  withComputed({ /**/ })
+);
+```
+```typescript
+export const BookSearchStore = signalStore(
+  withState(initialState)
+  withComputed({ /**/ })
+);
+```
+```typescript
+export const BookSearchStore = signalStore(
+  withState(initialState)
+  withComputed(({books}) => { 
+    total: computed(() => books().length)
+  })
+);
+```
+````
