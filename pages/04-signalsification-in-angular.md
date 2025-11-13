@@ -391,3 +391,42 @@ const bookState = signalState<BookState>({
 
 ````
 
+---
+layout: section
+---
+
+# `signalStore()`
+
+---
+
+# state management
+## signalStore()
+### basic example
+
+````md magic-move 
+```typescript
+
+import { signalStore, withState } from '@ngrx/signals';
+
+type Book = {
+  title: string;
+  author: string;
+}
+
+type BookSearchState = {
+  books: Book[];
+  isLoading: boolean;
+  filter: { query: string; order: 'asc' | 'desc' };
+};
+
+const initialState: BookSearchState = {
+  books: [],
+  isLoading: false,
+  filter: { query: '', order: 'asc' },
+};
+
+export const BookSearchStore = signalStore(
+  withState(initialState)
+);
+```
+````
