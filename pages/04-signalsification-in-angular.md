@@ -347,12 +347,18 @@ layout: center
 - signalStore()
 
 ---
+layout: section
+---
+
+# `signalState()`
+
+---
 layout: default
 ---
 
 # state management
-## @ngrx/signals
-### signalState() example
+## signalState()
+### example
 
 ````md magic-move
 
@@ -384,3 +390,4 @@ const bookState = signalState<BookState>({
 ```
 
 ````
+
