@@ -430,3 +430,46 @@ export const BookSearchStore = signalStore(
 );
 ```
 ````
+
+---
+
+# state management
+## signalStore()
+### basic example - providing
+
+````md magic-move 
+```typescript
+// local providing
+providers: [BookSearchStore]
+```
+```typescript
+// global providing
+export const BookSearchStore = signalStore(
+  { providedIn: 'root' }
+  withState(initialState)
+);
+```
+```typescript
+// providing with injection token
+const BOOK_SEARCH_STATE = new InjectionToken<BookSearchState>(
+  'BookSearchState',
+  { factory: () => initialState }
+);
+```
+
+```typescript
+// local providing
+providers: [BookSearchStore]
+// global providing
+export const BookSearchStore = signalStore(
+  { providedIn: 'root' }
+  withState(initialState)
+);
+// providing with injection token
+const BOOK_SEARCH_STATE = new InjectionToken<BookSearchState>(
+  'BookSearchState',
+  { factory: () => initialState }
+);
+```
+
+````
