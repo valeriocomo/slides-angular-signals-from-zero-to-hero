@@ -523,7 +523,52 @@ export const BookSearchStore = signalStore(
     updateQuery(query: string): void {
       patchState(store, (state) => ({ filter: { ...state.filter, query } }));
     },
+    load: rxMethod<string>(
+      // load the data from a data source
+    )
   })
 );
 ```
+```typescript
+
+@Component({
+  template: `
+    <h1>Books ({{ total() }})</h1>
+
+    <ul>
+      @for (book in books(); track $index) {
+        <li>{{ book.title }} - {{ book.author }}</li>
+      }
+    </ul>
+  `,
+  providers: [BookSearchStore],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class BookSearch {
+//
+}
+
+
+```
+
+```typescript
+
+@Component({
+//
+})
+export class BookSearch {
+  readonly #store = inject(BookSearchStore);
+  readonly books: Signal = this.store.books;
+  readonly total: Signal = this.store.total;
+
+  constructor() {
+    const query = this.store.filter.query;
+    // 👇 Re-fetch books whenever the value of query signal changes.
+    this.store.load(query);
+  }
+}
+
+
+```
+
 ````
