@@ -513,4 +513,17 @@ export const BookSearchStore = signalStore(
   })
 );
 ```
+```typescript
+export const BookSearchStore = signalStore(
+  withState(initialState)
+  withComputed(({books}) => { 
+    total: computed(() => books().length)
+  }),
+  withMethod((store) => {
+    updateQuery(query: string): void {
+      patchState(store, (state) => ({ filter: { ...state.filter, query } }));
+    },
+  })
+);
+```
 ````
