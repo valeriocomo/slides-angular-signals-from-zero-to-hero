@@ -59,35 +59,6 @@ type ResourceOptions<T, R> = PromiseResourceOptions<T, R> | StreamingResourceOpt
 
 </v-click>
 
-<!--   -->
-
----
-layout: default
----
-
-# async event with `resource()`
-## Example
-
-```typescript {|1|2-7|3|4-6|}
-const bookId: Signal<string> = getBookId();
-const bookResource: ResourceRef = resource({
-  params: () => ({id: bookId()}),
-  loader: ({params, abortSignal, previous}): Promise<Book> => {
-    return fetch(`books/${params.id}`, {signal: abortSignal});
-  },
-});
-// ...
-bookResource.reload();
-```
-
-<v-click>
-
-```typescript 
-type ResourceStatus = 'idle' | 'error' | 'loading' | 'reloading' | 'resolved' | 'local'
-```
-
-</v-click>
-
 ---
 layout: default
 ---
@@ -120,6 +91,35 @@ interface WritableResource<T> extends Resource<T> {
   readonly override isLoading: Signal<boolean>;
 }
 ```
+
+---
+layout: default
+---
+
+# async event with `resource()`
+## Example
+
+```typescript {|1|2-7|3|4-6|}
+const bookId: Signal<string> = getBookId();
+const bookResource: ResourceRef = resource({
+  params: () => ({id: bookId()}),
+  loader: ({params, abortSignal, previous}): Promise<Book> => {
+    return fetch(`books/${params.id}`, {signal: abortSignal});
+  },
+});
+// ...
+bookResource.reload();
+```
+
+<v-click>
+
+```typescript 
+type ResourceStatus = 'idle' | 'error' | 'loading' | 'reloading' | 'resolved' | 'local'
+```
+
+</v-click>
+
+
 
 ---
 layout: default
