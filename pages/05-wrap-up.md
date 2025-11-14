@@ -47,10 +47,3 @@ preload: true
 <img src="../public/images/qrcode.png">
 <p>https://meetme.cards/p/valeriocomo</p>
 </div>
-
-
-<!-- <div class="slidev-layout h-full grid section">
-    <div class="my-auto">
-        <h1 style="font-size: 2.96rem">Thank you for your time</h1>   
-    </div>
-</div> -->
