@@ -60,11 +60,15 @@ type ResourceOptions<T, R> = PromiseResourceOptions<T, R> | StreamingResourceOpt
 </v-click>
 
 ---
-layout: default
+layout: two-cols-header
 ---
 
 # async event with `resource()`
 ### Data model 
+
+:: left ::
+
+Resource
 
 ```typescript
 interface Resource<T> {
@@ -72,15 +76,31 @@ interface Resource<T> {
   readonly status: Signal<ResourceStatus>;
   readonly error: Signal<Error | undefined>;
   readonly isLoading: Signal<boolean>;
-  hasValue(this: T extends undefined ? this : never): this is Resource<Exclude<T, undefined>>;
+  hasValue(this: T extends undefined ? this : never)
+  : this is Resource<Exclude<T, undefined>>;
   hasValue(): boolean;
 }
 ```
+ResourceStatus
+
+```typescript
+type ResourceStatus = 'idle' 
+| 'error' 
+| 'loading' 
+| 'reloading' 
+| 'resolved' 
+| 'local'
+```
+
+:: right ::
+
+WritableResource
 
 ```typescript
 interface WritableResource<T> extends Resource<T> {
   readonly value: WritableSignal<T>;
-  hasValue(this: T extends undefined ? this : never): this is WritableResource<Exclude<T, undefined>>;
+  hasValue(this: T extends undefined ? this : never)
+  : this is WritableResource<Exclude<T, undefined>>;
   hasValue(): boolean;
   set(value: T): void;
   update(updater: (value: T) => T): void;
@@ -110,16 +130,6 @@ const bookResource: ResourceRef = resource({
 // ...
 bookResource.reload();
 ```
-
-<v-click>
-
-```typescript 
-type ResourceStatus = 'idle' | 'error' | 'loading' | 'reloading' | 'resolved' | 'local'
-```
-
-</v-click>
-
-
 
 ---
 layout: default
