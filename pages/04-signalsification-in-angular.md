@@ -131,7 +131,7 @@ layout: default
 ---
 
 # async event with `resource()`
-## Example
+### Example
 
 ```typescript {|1|2-7|3|4-6|}
 const bookId: Signal<string> = getBookId();
