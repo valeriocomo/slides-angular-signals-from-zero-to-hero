@@ -7,7 +7,7 @@ transition: slide-up
 
 <div class="slidev-layout h-full grid section">
     <div class="my-auto">
-        <h1 style="color: #0A0A0A">Agenda</h1> 
+        <h1 style="color: #0A0A0A">agenda</h1> 
     </div>
 </div>
 
@@ -16,9 +16,9 @@ layout: image-right
 image: '/images/agenda.png'
 ---
 
-# Agenda
+# agenda
 
-* The concept behind
-* Signals API
-* Signalsification in Angular
+* the concept behind
+* signals API
+* signalsification in Angular
 * Q&A

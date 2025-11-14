@@ -104,7 +104,7 @@ layout: section
 layout: quote
 ---
 
-# The difference between Signals and RxJS is the same between a scalpel and a swiss knife
+# the difference between Signals and RxJS is the same between a scalpel and a swiss knife
 
 ---
 layout: image
