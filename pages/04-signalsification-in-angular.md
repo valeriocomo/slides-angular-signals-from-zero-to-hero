@@ -572,3 +572,79 @@ export class BookSearch {
 ```
 
 ````
+
+---
+layout: center
+---
+
+# put everything together
+
+---
+layout: default
+---
+
+# state management
+## put everything together
+### complete example
+
+````md magic-move 
+
+```typescript
+@Component({
+  imports: [Control],
+  template: `
+    <input [control]="form.title" placeholder="Title"/>
+    <input [control]="form.author" placeholder="Author"/>
+  `,
+  providers: [BookStore],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class BookForm {
+//
+}
+
+```
+
+```typescript
+@Component({
+  imports: [Control],
+  template: `
+    <input [control]="form.title" placeholder="Title"/>
+    <input [control]="form.author" placeholder="Author"/>
+  `,
+  providers: [BookStore],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class BookForm {
+  readonly #store = inject(BookStore);
+  readonly form = form(this.#store.form);
+}
+
+```
+
+```typescript
+@Component({
+  imports: [Control],
+  template: `
+    <input [control]="form.title" placeholder="Title"/>
+    <input [control]="form.author" placeholder="Author"/>
+  `,
+  providers: [BookStore],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class BookForm {
+  readonly #store = inject(BookStore);
+  readonly form = form(this.#store.form);
+}
+
+const bookStore = signalStore(
+  withState({title: '', author: ''})
+  withComputed((state) => { /* */ }),
+  withMethod((store) => {
+    save(formData: { title: string; author: string }): void {      /* save data */    },
+    load: rxMethod<string>( /* load the data from a data source */)
+  })
+)
+```
+
+````
