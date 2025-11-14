@@ -167,6 +167,8 @@ const bookSchema = z.object({
 bookId = input.required<string>();
 book = httpResource(() => `/api/books/${bookId()}`, { parse: bookSchema.parse });
 ```
+</v-click>
+<v-click>
 
 ### HTML
 
