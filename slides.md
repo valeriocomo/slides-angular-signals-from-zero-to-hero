@@ -62,3 +62,7 @@ src: ./pages/03-signals-api.md
 ---
 src: ./pages/04-signalsification-in-angular.md
 ---
+
+---
+src: ./pages/05-wrap-up.md
+---
