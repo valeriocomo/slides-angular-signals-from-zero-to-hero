@@ -648,3 +648,59 @@ const bookStore = signalStore(
 ```
 
 ````
+
+---
+layout: center
+---
+
+# can we ditch rxjs?
+
+---
+layout: center
+---
+
+# rxjs interoperability
+
+<v-clicks>
+
+- toSignal()
+
+- toObservable()
+
+- rxResource()
+
+</v-clicks>
+
+---
+layout: default
+---
+
+# rxjs interoperability
+## toSignal()
+### example
+
+```typescript
+//snippet
+readonly obs = interval(1000)
+
+readonly signal = toSignal(obs, { initialValue: 0 });
+
+```
+
+---
+layout: default
+---
+
+# rxjs interoperability
+## toObservable()
+### example
+
+```typescript
+//snippet
+readonly sig = signal(0)
+
+readonly obs = toObservable(sig);
+
+//set a new value, obs will emit a new value
+sig.set(1)
+```
