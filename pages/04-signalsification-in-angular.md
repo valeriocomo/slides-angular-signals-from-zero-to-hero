@@ -68,6 +68,8 @@ layout: two-cols-header
 
 :: left ::
 
+<v-click>
+
 Resource
 
 ```typescript
@@ -81,6 +83,10 @@ interface Resource<T> {
   hasValue(): boolean;
 }
 ```
+</v-click>
+
+<v-click>
+
 ResourceStatus
 
 ```typescript
@@ -92,7 +98,12 @@ type ResourceStatus = 'idle'
 | 'local'
 ```
 
+</v-click>
+
+
 :: right ::
+
+<v-click>
 
 WritableResource
 
@@ -111,6 +122,9 @@ interface WritableResource<T> extends Resource<T> {
   readonly override isLoading: Signal<boolean>;
 }
 ```
+</v-click>
+
+
 
 ---
 layout: default
