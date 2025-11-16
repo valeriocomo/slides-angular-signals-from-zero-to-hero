@@ -147,8 +147,8 @@ export class DoubleComponent {
     `
 })
 export class DoubleComponent {
-    readonly numericValue: WritableSignal = signal(1);
-    readonly disableDivideByTwo: Signal = computed(() => this.numericValue() <= 1);
+    readonly numericValue = signal(1);
+    readonly disableDivideByTwo = computed(() => this.numericValue() <= 1);
 
     divideByTwo() {
         this.numericValue.update(c => c / 2);
