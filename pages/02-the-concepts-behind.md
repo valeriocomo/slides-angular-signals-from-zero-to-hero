@@ -113,26 +113,26 @@ layout: full
 ```typescript
 @Component({
     template: `
-    <p>{{ counter | async }}</p>
-    <button (click)="decrease()" [disabled]="disableDecrease | async">-</button>
-    <button (click)="increase()">+</button>
+    <p>{{ numericValue$ | async }}</p>
+    <button (click)="divideByTwo()" [disabled]="disableDivideByTwo$ | async">Divide by two</button>
+    <button (click)="doubleIt()">Double</button>
     `,
     imports: [AsyncPipe]
 })
-export class AppComponent {
-    readonly counter = new BehaviourSubject(0);
-    readonly disableDecrease = this.counter.pipe(
-        map(counter => counter <= 0)
+export class DoubleComponent {
+    readonly numericValue$ = new BehaviourSubject(1);
+    readonly disableDivideByTwo$ = this.numericValue$.pipe(
+        map(v => v <= 1)
     );
 
-    decrease() {
-        const counter = --this.counter.value;
-        this.counter.next(counter);
+    divideByTwo() {
+        const numericValue = this.numericValue$.value / 2;
+        this.numericValue$.next(numericValue);
     }
 
-    increase() {
-        const counter = ++this.counter.value;
-        this.counter.next(counter);
+    doubleIt() {
+        const numericValue = this.numericValue$.valu * 2;
+        this.numericValue$.next(numericValue);
     }
 }
 ```
@@ -144,21 +144,21 @@ layout: full
 ```typescript
 @Component({
     template: `
-    <p>{{ counter() }}</p>
-    <button (click)="decrease()" [disabled]="disableDecrease()">-</button>
-    <button (click)="increase()">+</button>
+    <p>{{ numericValue() }}</p>
+    <button (click)="divideByTwo()" [disabled]="disableDivideByTwo()">Divide by two</button>
+    <button (click)="doubleIt()">Double</button>
     `
 })
-export class AppComponent {
-    readonly counter: WritableSignal = signal(0);
-    readonly disableDecrease: Signal = computed(() => this.counter() <= 0);
+export class DoubleComponent {
+    readonly numericValue: WritableSignal = signal(0);
+    readonly disableDivideByTwo: Signal = computed(() => this.numericValue() <= 0);
 
-    decrease() {
-        this.counter.update(c => c-1);
+    divideByTwo() {
+        this.numericValue.update(c => c / 2);
     }
 
-    increase() {
-        this.counter.update(c => c+1);
+    doubleIt() {
+        this.numericValue.update(c => c * 2);
     }
 }
 ```
