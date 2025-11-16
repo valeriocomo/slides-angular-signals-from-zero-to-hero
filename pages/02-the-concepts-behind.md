@@ -109,8 +109,9 @@ layout: quote
 ---
 layout: full
 ---
+````md magic-move
 
-```typescript
+```typescript {*}
 @Component({
     template: `
     <p>{{ numericValue$ | async }}</p>
@@ -137,10 +138,6 @@ export class DoubleComponent {
 }
 ```
 
----
-layout: full
----
-
 ```typescript
 @Component({
     template: `
@@ -150,8 +147,8 @@ layout: full
     `
 })
 export class DoubleComponent {
-    readonly numericValue: WritableSignal = signal(0);
-    readonly disableDivideByTwo: Signal = computed(() => this.numericValue() <= 0);
+    readonly numericValue: WritableSignal = signal(1);
+    readonly disableDivideByTwo: Signal = computed(() => this.numericValue() <= 1);
 
     divideByTwo() {
         this.numericValue.update(c => c / 2);
@@ -162,3 +159,4 @@ export class DoubleComponent {
     }
 }
 ```
+````
