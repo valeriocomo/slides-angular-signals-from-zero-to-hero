@@ -13,10 +13,14 @@ Learn more about Slidev at the [documentation](https://sli.dev/).
 ### Refs
 
 - https://angular.dev/guide/signals
-- https://angular.dev/ecosystem/rxjs-interop
 - https://angular.dev/guide/signals/linked-signal
 - https://angular.dev/guide/signals/resource
+- https://angular.dev/guide/http/http-resource
+- https://angular.dev/ecosystem/rxjs-interop
 - https://angular.dev/api/core/resource
 - https://angular.dev/api/core/ResourceRef
 - https://angular.dev/api/common/http/httpResource
 - https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
+- https://www.angulartraining.com/daily-newsletter/angular-change-detection-illustrated/
+- https://www.angulararchitects.io/blog/the-new-ngrx-signal-store-for-angular-2-1-flavors/
+- https://next.angular.dev/api/forms/signals/form

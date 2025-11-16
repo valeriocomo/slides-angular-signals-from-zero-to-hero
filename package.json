@@ -2,12 +2,14 @@
   "name": "slides-angular-signals-from-zero-to-hero",
   "type": "module",
   "private": true,
+  "version": "0.1.0",
   "scripts": {
     "build": "slidev build",
     "dev": "slidev --open",
     "export": "slidev export"
   },
   "dependencies": {
+    "@iconify-json/skill-icons": "^1.2.3",
     "@slidev/cli": "^52.6.0",
     "@slidev/theme-apple-basic": "^0.25.1",
     "@slidev/theme-default": "latest",

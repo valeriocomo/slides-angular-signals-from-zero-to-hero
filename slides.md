@@ -28,7 +28,7 @@ seoMeta:
 ---
 
 # Angular Signals
-# From zero to hero
+# From zero to hero 🚀​
 
 <div class="absolute bottom-10">
   <span class="font-700">
@@ -41,3 +41,28 @@ seoMeta:
     <carbon:logo-github />
   </a>
 </div>
+
+---
+src: ./pages/00-about-me.md
+transition: fade
+---
+
+---
+src: ./pages/01-agenda.md
+---
+
+---
+src: ./pages/02-the-concepts-behind.md
+---
+
+---
+src: ./pages/03-signals-api.md
+---
+
+---
+src: ./pages/04-signalsification-in-angular.md
+---
+
+---
+src: ./pages/05-wrap-up.md
+---
