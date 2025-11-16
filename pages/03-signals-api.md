@@ -89,14 +89,12 @@ layout: default
 
 ### API
 
-<v-click>
-```typescript {|4|}
+```typescript {|4}
 function signal<T>(
     initialValue: T,
   options?: CreateSignalOptions<T> | undefined,
 ): WritableSignal<T>;
 ```
-</v-click>
 
 ---
 layout: default
@@ -143,7 +141,7 @@ layout: default
 
 ### API
 
-```typescript {|4|}
+```typescript {|4}
 function computed<T>(
   computation: () => T,
   options?: CreateComputedOptions<T> | undefined,
