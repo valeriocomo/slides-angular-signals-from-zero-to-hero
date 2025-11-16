@@ -689,11 +689,11 @@ layout: center
 
 <v-clicks>
 
-- toSignal()
+- `toSignal()`
 
-- toObservable()
+- `toObservable()`
 
-- rxResource()
+- `rxResource()`
 
 </v-clicks>
 
