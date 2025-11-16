@@ -107,19 +107,58 @@ layout: quote
 # the difference between Signals and RxJS is the same between a scalpel and a swiss knife
 
 ---
-layout: image
-image: images/signals-vs-rxjs-0.png
-backgroundSize: contain
+layout: full
 ---
 
----
-layout: image
-image: images/signals-vs-rxjs-1.png
-backgroundSize: contain
----
+```typescript
+@Component({
+    template: `
+    <p>{{ counter | async }}</p>
+    <button (click)="decrease()" [disabled]="disableDecrease | async">-</button>
+    <button (click)="increase()">+</button>
+    `,
+    imports: [AsyncPipe]
+})
+export class AppComponent {
+    readonly counter = new BehaviourSubject(0);
+    readonly disableDecrease = this.counter.pipe(
+        map(counter => counter <= 0)
+    );
+
+    decrease() {
+        const counter = --this.counter.value;
+        this.counter.next(counter);
+    }
+
+    increase() {
+        const counter = ++this.counter.value;
+        this.counter.next(counter);
+    }
+}
+```
 
 ---
-layout: image
-image: images/signals-vs-rxjs-2.png
-backgroundSize: contain
+layout: full
 ---
+
+```typescript
+@Component({
+    template: `
+    <p>{{ counter() }}</p>
+    <button (click)="decrease()" [disabled]="disableDecrease()">-</button>
+    <button (click)="increase()">+</button>
+    `
+})
+export class AppComponent {
+    readonly counter: WritableSignal = signal(0);
+    readonly disableDecrease: Signal = computed(() => this.counter() <= 0);
+
+    decrease() {
+        this.counter.update(c => c-1);
+    }
+
+    increase() {
+        this.counter.update(c => c+1);
+    }
+}
+```
