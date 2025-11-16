@@ -150,7 +150,7 @@ layout: default
 ---
 
 # async event with `resource()`
-## httpResource()
+## `httpResource()`
 
 It's a wrapper around HttpClient
 
