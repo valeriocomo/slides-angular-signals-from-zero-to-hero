@@ -389,3 +389,7 @@ rhcpOptions.set(['Dave Navarro', 'Anthony Kiedis', 'Flea', 'Chad Smith']);
 
 console.log(selectedOption()); // 'Dave Navarro'
 ```
+---
+layout: image
+image: 'images/john-approves.gif'
+---
