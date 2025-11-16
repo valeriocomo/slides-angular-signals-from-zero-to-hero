@@ -367,10 +367,10 @@ layout: center
 ---
 
 # state management
-## @ngrx/signals
+## *@ngrx/signals*
 
-- signalState()
-- signalStore()
+- `signalState()`
+- `signalStore()`
 
 ---
 layout: section
@@ -521,19 +521,19 @@ const initialState: BookSearchState = {
 };
 
 export const BookSearchStore = signalStore(
-  withState(initialState)
+  withState(initialState),
   withComputed({ /**/ })
 );
 ```
 ```typescript
 export const BookSearchStore = signalStore(
-  withState(initialState)
+  withState(initialState),
   withComputed({ /**/ })
 );
 ```
 ```typescript
 export const BookSearchStore = signalStore(
-  withState(initialState)
+  withState(initialState),
   withComputed(({books}) => { 
     total: computed(() => books().length)
   })
@@ -541,7 +541,7 @@ export const BookSearchStore = signalStore(
 ```
 ```typescript
 export const BookSearchStore = signalStore(
-  withState(initialState)
+  withState(initialState),
   withComputed(({books}) => { 
     total: computed(() => books().length)
   }),
@@ -562,7 +562,7 @@ export const BookSearchStore = signalStore(
     <h1>Books ({{ total() }})</h1>
 
     <ul>
-      @for (book in books(); track $index) {
+      @for (book of books(); track $index) {
         <li>{{ book.title }} - {{ book.author }}</li>
       }
     </ul>
