@@ -18,7 +18,7 @@ image: '/images/agenda.png'
 
 # agenda
 
-* the concept behind
+* the concepts behind
 * signals API
 * signals in Angular
 * Q&A

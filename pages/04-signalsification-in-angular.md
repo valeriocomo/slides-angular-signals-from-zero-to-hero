@@ -236,7 +236,7 @@ It's a wrapper around HttpClient
 ```typescript
 const bookSchema = z.object({
   title: z.string(),
-  authore: z.string(),
+  author: z.string(),
 });
 
 bookId = input.required<string>();
@@ -334,7 +334,7 @@ import { Control, form, minLength, required } from '@angular/forms/signals';
 ```
 ```typescript {*}{lines:false,startLine:14}
 export class FormComponent {
-  protected readonly data = signal({ name: '', surname: '', email: ''})
+  protected readonly data = signal({ name: '', surname: '' })
   protected readonly form = form(this.data, (p) => {
     required(p.name, { message: 'Name is required' });
     required(p.surnmame, { message: 'Surname is required' });
