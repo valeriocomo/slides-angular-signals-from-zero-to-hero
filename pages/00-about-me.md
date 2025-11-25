@@ -6,7 +6,6 @@ transition: slide-up
 
 # Hello! I'm Valerio!
 
-
 👨🏽‍💻 Technical Project Manager @ DTD
 
 📝 Dev blog

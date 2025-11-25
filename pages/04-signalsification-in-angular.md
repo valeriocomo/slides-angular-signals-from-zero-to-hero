@@ -17,11 +17,86 @@ layout: center
 
 # Signalsification in Angular
 
+- passing data to component with `input()`
+
 - async event with `resource()`
 
 - signal forms
 
 - state management
+
+---
+layout: section
+---
+
+# passing data to component with `input()`
+
+---
+layout: default
+---
+
+# passing data to component with `input()`
+## example
+
+### HTML
+```html
+<app-signal-input-example value="42"></app-signal-input-example>
+```
+
+<v-click>
+
+### TS
+
+````md magic-move
+
+```typescript {*}
+@Component({
+  selector: 'app-signal-input-example'
+  template: '<p>{{ value }}</p>'
+})
+export class SignalInputExample {
+  @Input()
+  value: number;
+}
+```
+
+```typescript {*}
+@Component({
+  selector: 'app-signal-input-example'
+  template: '<p>{{ value() }}</p>'
+})
+export class SignalInputExample {
+  value: SignalInput<number | undefined> = input<number>();
+}
+```
+
+```typescript {*}
+@Component({
+  selector: 'app-signal-input-example'
+  template: '<p>{{ value() }}</p>'
+})
+export class SignalInputExample {
+  value: SignalInput<number> = input.required<number>();
+}
+```
+
+```typescript {*}
+@Component({
+  selector: 'app-signal-input-example'
+  template: '<p>{{ value() }}</p>'
+})
+export class SignalInputExample {
+  value: SignalInput<number> = input.required<number>({ transform: appendPx });
+}
+
+function appendPx(value: number): string {
+  return `${value}px`;
+}
+```
+
+
+````
+</v-click>
 
 ---
 layout: section
