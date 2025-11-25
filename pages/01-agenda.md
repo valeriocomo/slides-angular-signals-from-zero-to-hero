@@ -20,5 +20,5 @@ image: '/images/agenda.png'
 
 * the concept behind
 * signals API
-* signalsification in Angular
+* signals in Angular
 * Q&A

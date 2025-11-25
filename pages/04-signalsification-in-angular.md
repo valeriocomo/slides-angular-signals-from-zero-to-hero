@@ -7,7 +7,7 @@ transition: slide-up
 
 <div class="slidev-layout h-full grid section">
     <div class="my-auto">
-        <h1>Signalsification in Angular</h1> 
+        <h1>signals in Angular</h1> 
     </div>
 </div>
 
@@ -15,7 +15,7 @@ transition: slide-up
 layout: center
 ---
 
-# Signalsification in Angular
+# signals in Angular
 
 - passing data to component with `input()`
 
