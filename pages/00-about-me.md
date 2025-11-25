@@ -8,7 +8,7 @@ transition: slide-up
 
 👨🏽‍💻 Technical Project Manager @ DTD
 
-📝 Dev blog
+📝 Tech writer
 
 🎤 Speaker
 
